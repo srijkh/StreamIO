@@ -46,41 +46,39 @@ var common = {
     },
 
     //function to get the information of the requested stream file, returns an object of type fileobj
-    getFileProp: (arg) => {
-        //var files = fs.readdirSync(arg)
-        //for(file of files)
-        //{ 
-        //console.log(file)
-
-        arg += '.mp4';
-
-        var ext = path.extname(arg)
-        fileobj.path = arg
-        if (ext === '.flv') {
-            fileobj.mimetype = 'video/x-flv'
-            // break;
+    getFileProp: (dir, name) => {
+        var files = fs.readdirSync(dir)
+        for (file of files) {
+            parts = file.split('.')
+            if (parts[0] == name) {
+                var ext = parts[1]
+                fileobj.path = dir + '/' + file
+                if (ext === 'flv') {
+                    fileobj.mimetype = 'video/x-flv'
+                    break;
+                }
+                else if (ext === 'mp4') {
+                    fileobj.mimetype = 'video/mp4'
+                    break;
+                }
+                else if (ext == 'mov') {
+                    fileobj.mimetype = 'video/quicktime'
+                    break;
+                }
+                else if (ext === 'avi') {
+                    fileobj.mimetype = 'video/x-msvideo'
+                    break;
+                }
+                else if (ext === 'wmv') {
+                    fileobj.mimetype = 'video/x-ms-wmv'
+                    break;
+                }
+                else if (ext === 'mkv') {
+                    fileobj.mimetype = 'video/x-matroska'
+                    break;
+                }
+            }
         }
-        else if (ext === '.mp4') {
-            fileobj.mimetype = 'video/mp4'
-            // break;
-        }
-        else if (ext == '.mov') {
-            fileobj.mimetype = 'video/quicktime'
-            // break;
-        }
-        else if (ext === '.avi') {
-            fileobj.mimetype = 'video/x-msvideo'
-            // break;
-        }
-        else if (ext === '.wmv') {
-            fileobj.mimetype = 'video/x-ms-wmv'
-            // break;
-        }
-        else if (ext === '.mkv') {
-            fileobj.mimetype = 'video/x-matroska'
-            // break;
-        }
-        //}
         return fileobj
     },
 

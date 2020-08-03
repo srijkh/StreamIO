@@ -24,6 +24,6 @@ app.use('/web_shows', web_shows)
 app.listen(4321, function () {
   console.clear()
   console.log('=======================================  SERVER 2.0  ===================================\n\n')
-  console.log('your local stream server is now running add the movies to "/repo/movies/" directory\n and connect your phone or any other device via wifi \n open url http://' + PrivateIPAddress + ':4321 \n enjoy \n made by rajeev chourey\n\n')
+  console.log('Welcome to Stream IO\n Connect your phone or any other device via wifi to your LAN \n Open url http://' + PrivateIPAddress + ':4321 \n')
   console.log('========================================================================================\n\n')
 })

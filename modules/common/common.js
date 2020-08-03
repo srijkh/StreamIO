@@ -26,7 +26,7 @@ var createString = (data, int, category) => {
     // const string = JSON.stringify(data);
     // const dataObj = JSON.parse(string);
     // console.log(data.children[0].children);
-    console.log(abs_path);
+    // console.log(abs_path);
     let str;
 
     htmlString = data.children.map((el) => {

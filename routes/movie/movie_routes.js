@@ -1,6 +1,6 @@
 var express = require('express')//instance of express 
 var movie_router = express.Router()//instance of router method
-var movies = require('../../modules/movies/movie.js')//instance of movie module
+var movies = require('../../modules/common/controller.js')//instance of movie module
 var common = require('../../modules/common/common.js')// instance of the common.js module
 const fs = require('fs') //file system module instance
 const { dir } = require('console')
@@ -8,18 +8,19 @@ const { dir } = require('console')
 const overview = fs.readFileSync(`${__dirname}/../../public/movie-overview.html`,
     'utf-8');
 
-
 //this route sends array of movies back to client
 movie_router.get('/', (req, res) => {
 
-    const dir_tree = movies.getMoviesList();
+    // 1 for web_shows, 0 for movies
+    const dir_tree = movies.getMoviesList(0);
     let data;
 
     // console.log(dir_tree);
     // res.send(movies.getMoviesList())
 
     // function to create list and insert it into the parent HTML
-    data = common.replaceTemp(overview, dir_tree);
+    // 1 for webshows, 0 for movies
+    data = common.replaceTemp(overview, dir_tree, 0);
 
     res.end(data);
 })
@@ -27,8 +28,17 @@ movie_router.get('/', (req, res) => {
 //this route sends array of movies back to client
 movie_router.get('/:name', (req, res) => {
 
+    let param_name, name;
+
     //getting the file info from the directory
-    const f = movies.getMovieInfo(req.params.name)
+    // console.log(req.params);
+    param_name = req.params.name;
+    name = param_name.replace(/-/g, "/");
+
+    // console.log(name);
+
+    // 1 for webshows, 0 for movies
+    const f = movies.getMovieInfo(name, 0)
     fileSize = fs.statSync(f.path).size
 
     //building the response

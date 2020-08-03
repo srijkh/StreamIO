@@ -51,9 +51,9 @@
                                 <li><a>Service 2</a></li>
                             </ul>
                         </li> -->
-                        <li><a href="/webshow">Web Shows</a></li>
-                        <li><a href="/home">Files</a></li>
-                        <li><a href="/home">Images</a></li>
+                        <li><a href="/web_shows">Web Shows</a></li>
+                        <li><a href="/">Files</a></li>
+                        <li><a href="/">Images</a></li>
                     </ul>
                 </div>
             </div>
@@ -73,10 +73,17 @@
                                 <p style="font-family: 'Pacifico', cursive; text-align: center;"
                                     class="text-white text-s-size-40 text-m-size-60 text-l-size-80 margin-bottom-40 text-bold text-line-height-1">
                                     welcome</p>
-                                <p style="text-align: center;" class="text-white text-size-16 margin-bottom-40">Duis
-                                    autem vel eum iriure
-                                    dolor in hendrerit in vulputate velit<br> esse molestie consequat, vel illum
-                                    dolore eu feugiat nulla facilisis</p>
+                                <p style="text-align: center;" class="text-white text-size-16 margin-bottom-40">
+                                    Select any of the options from the directory listing below to start watching.<br>
+                                    <br>
+                                    Directory List Empty...??
+                                    <br>
+                                    <br>
+                                    Just goto the folder <b>bflix > repo</b> and paste your files inside the applicable
+                                    category.
+                                    <br>
+                                    <b>Happy Streaming..!!</b>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -85,30 +92,30 @@
         </section>
 
         <!-- Section 1 -->
-        <section style="padding-top:10%;" class="section background-white">
-            <h2 style="margin:5%;" class="headline text-thin text-s-size-30">See Whats Next !!</h2>
+        <section id="section_1" style="padding-top:10%;" class="section_1 hide section background-white">
+            <h2 style="margin:5%;" class="movie_name headline text-thin text-s-size-30">See Whats Next !!</h2>
 
-            <video style=" width: 100%;" id="player" playsinline controls data-poster="/path/to/poster.jpg">
-                <source src="http://192.168.1.38:4321/movie/Movie%201" type="video/mp4" />
+            <video data-id="nan" style=" width: 100%;" id="player" playsinline controls
+                data-poster="/path/to/poster.jpg">
             </video>
 
         </section>
 
-        <section style="margin-bottom:0px; padding:2%;" class="section background-primary text-center">
+        <section style="margin-bottom:0px; padding:2%;" class="section_2 section background-primary text-center">
             <!-- <div class="line"> -->
             <!-- <div class="s-12 m-10 l-8 center"> -->
-            <h2 style="margin:0px;" class="headline text-thin text-s-size-30">See Whats Next !!</h2>
+            <h2 style="margin:0px;" class="listing headline text-thin text-s-size-30">Available Movies</h2>
             <!-- </div> -->
             <!-- </div> -->
         </section>
 
 
-        <section style="margin-top:0px;padding-top:5%;" class="section background-dark">
+        <section style="margin-top:0px;padding-top:5%;" class="section_3 section background-white">
             <!-- Section 2 -->
 
             <div class="listContainer">
 
-                <div class="box">
+                <div class="box background-white">
                     <!--
                     <ul class="directory-list">
                         <li>assets
@@ -173,7 +180,7 @@
     <!-- FOOTER -->
     <footer>
         <!-- Social -->
-        <div class="background-dark padding text-center">
+        <div class="section_4 background-dark padding text-center">
             <a href="/"><i class="icon-facebook_circle icon2x text-white"></i></a>
             <a href="/"><i class="icon-twitter_circle icon2x text-white"></i></a>
             <a href="/"><i class="icon-google_plus_circle icon2x text-white"></i></a>
@@ -184,6 +191,7 @@
     <script type="text/javascript" src="js/responsee.js"></script>
     <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
 </body>
 
 </html>
